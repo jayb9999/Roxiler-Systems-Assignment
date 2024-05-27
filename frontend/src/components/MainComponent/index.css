@@ -1,0 +1,27 @@
+.main{
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.head{
+    height: 300px;
+    width: 300px;
+    background-color: aqua;
+    align-self: center;
+    border-radius: 100%;
+    align-content: center;
+}
+.hd{
+    text-align: center;
+}
+.labels{
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+}
+.inpt{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
