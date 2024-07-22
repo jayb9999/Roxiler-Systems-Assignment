@@ -3,6 +3,8 @@ const sqlite3 = require('sqlite3')
 const path = require('path')
 const axios = require('axios')
 //const cors = require('cors');
+require('dotenv').config();
+
 
 const app = express()
 
@@ -242,6 +244,12 @@ app.get('/combined-data/', async (req, res) => {
     res.status(500).json({error: error.message})
   }
 })
+
+app.use(express.static(path.join(__dirname, '../frontend/build')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
+});
 
 // Start the server
 app.listen(PORT, () => {

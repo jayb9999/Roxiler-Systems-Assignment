@@ -1,5 +1,6 @@
 services:
   - type: web
+<<<<<<< HEAD
     name: frontend
     env: static
     staticPublishPath: frontend/build
@@ -13,3 +14,24 @@ services:
     envVars:
       - key: DATABASE_URL
         value: /backend/transactionsDB.db
+=======
+    name: roxiler-systems-frontend
+    env: node
+    plan: free
+    buildCommand: npm install --prefix frontend && npm run build --prefix frontend
+    startCommand: serve -s frontend/build
+    envVars:
+      - key: NODE_ENV
+        value: production
+    staticPublishPath: frontend/build
+
+  - type: web
+    name: roxiler-systems-backend
+    env: node
+    plan: free
+    buildCommand: npm install --prefix backend
+    startCommand: npm run start-backend
+    envVars:
+      - key: NODE_ENV
+        value: production
+>>>>>>> 0b298748e3c81c240ba84c7bf2b4150aa89b499f
