@@ -1,37 +1,10 @@
 services:
   - type: web
-<<<<<<< HEAD
-    name: frontend
-    env: static
-    staticPublishPath: frontend/build
-    buildCommand: cd frontend && npm install && npm run build
-
-  - type: web
-    name: backend
-    env: node
-    buildCommand: cd backend && npm install
-    startCommand: node backend/index.js
-    envVars:
-      - key: DATABASE_URL
-        value: /backend/transactionsDB.db
-=======
-    name: roxiler-systems-frontend
+    name: my-mern-app
     env: node
     plan: free
-    buildCommand: npm install --prefix frontend && npm run build --prefix frontend
-    startCommand: serve -s frontend/build
+    buildCommand: npm install && npm run build
+    startCommand: cd backend && npm start
     envVars:
       - key: NODE_ENV
         value: production
-    staticPublishPath: frontend/build
-
-  - type: web
-    name: roxiler-systems-backend
-    env: node
-    plan: free
-    buildCommand: npm install --prefix backend
-    startCommand: npm run start-backend
-    envVars:
-      - key: NODE_ENV
-        value: production
->>>>>>> 0b298748e3c81c240ba84c7bf2b4150aa89b499f
