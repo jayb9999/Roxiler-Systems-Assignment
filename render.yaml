@@ -1,11 +1,22 @@
 services:
   - type: web
-    name: my-mern-app
+    name: roxiler-systems-frontend
     env: node
     plan: free
-    buildCommand: npm install && npm run build
-    startCommand: npm run start
+    buildCommand: npm install --prefix frontend && npm run build --prefix frontend
+    startCommand: serve -s frontend/build
     envVars:
       - key: NODE_ENV
         value: production
-    autoDeploy: true
+    staticPublishPath: frontend/build
+
+  - type: web
+    name: roxiler-systems-backend
+    env: node
+    plan: free
+    buildCommand: npm install --prefix backend
+    startCommand: npm run start-backend
+    envVars:
+      - key: NODE_ENV
+        value: production
+
