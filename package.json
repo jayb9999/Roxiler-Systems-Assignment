@@ -4,22 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-<<<<<<< HEAD
     "test": "echo \"Error: no test specified\" && exit 1",
     "install": "cd backend && npm install && cd ../frontend && npm install",
     "build": "cd frontend && npm run build",
     "start": "npm run build && cd backend && npm start"
   },
   "engines": {
-    "node": "14.x"
-=======
+    "node": "14.x",
     "install-frontend": "npm install --prefix frontend",
     "install-backend": "npm install --prefix backend",
     "build-frontend": "npm run build --prefix frontend",
     "build": "npm run build-frontend",
     "start-backend": "node backend/index.js",
     "start": "npm run start-backend"
->>>>>>> 0b298748e3c81c240ba84c7bf2b4150aa89b499f
   },
   "keywords": [],
   "author": "",
