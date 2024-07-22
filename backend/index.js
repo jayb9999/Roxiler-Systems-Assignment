@@ -1,11 +1,22 @@
 const express = require('express')
 const sqlite3 = require('sqlite3')
+const path = require('path')
 const axios = require('axios')
-const cors = require('cors');
+//const cors = require('cors');
 
 const app = express()
-const PORT = 3000
-app.use(cors());
+
+//app.use(cors());
+
+const PORT = process.env.PORT || 3000
+
+//Serve static files from the React app
+app.use(express.static(path.join(__dirname, '..', 'frontend', 'build')));
+
+//Cactch-all handler to serve index.html for any route not handled by backend
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'frontend', 'build', 'index.html'));
+});
 
 // Initialize SQLite database
 const db = new sqlite3.Database('./transactionsDB.db')

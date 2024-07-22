@@ -5,10 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node backend/index.js",
-    "backend": "npm start --prefix backend",
-    "frontend": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+    "install": "cd backend && npm install && cd ../frontend && npm install",
+    "build": "cd frontend && npm run build",
+    "start": "npm run build && cd backend && npm start"
+  },
+  "engines": {
+    "node": "14.x"
   },
   "keywords": [],
   "author": "",
