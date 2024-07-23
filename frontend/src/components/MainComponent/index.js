@@ -19,7 +19,7 @@ const MainComponent = () => {
   const fetchAllTransactions = async (currentPage, perPage, search, selectedMonth) => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/transactions?page=${currentPage}&perPage=${perPage}&search=${search}`,
+        `https://roxiler-transactions-managaement.onrender.com/transactions?page=${currentPage}&perPage=${perPage}&search=${search}`,
       )
       const data = response.data
       setTransactions(data)
@@ -61,7 +61,7 @@ const MainComponent = () => {
   const fetchCombinedData = async month => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/combined-data?month=${month}`,
+        `https://roxiler-transactions-managaement.onrender.com/combined-data?month=${month}`,
       )
       setStatistics(response.data.statistics)
       setBarChart(response.data.barChart)
